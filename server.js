@@ -4,6 +4,7 @@ var app      = express();
 const fs = require('fs');
 const path = require('path');
 
+// Default to localhost:4000
 const API_SERVER_HOST = process.env.API_SERVER_HOST || 'localhost';
 const API_SERVER_PORT = process.env.API_SERVER_PORT || 4000;
  
