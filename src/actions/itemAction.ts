@@ -27,12 +27,13 @@ export const ITEM_UNRESERVE_SUCCESS = 'item/UNRESERVE_SUCCESS';
 export const ITEM_UNRESERVE_FAIL = 'item/UNRESERVE_FAIL';
 
 export interface ItemResponse<T> {
-    success: boolean,
+    code: number,
+    message: string,
     items: T[]
 };
 
 export interface ItemGenericResponse {
-    success: boolean,
+    code: number,
     message: string
 }
 
@@ -96,7 +97,7 @@ export const getReservedItemsAction = () => {
         const token = localStorage.getItem('authToken');
         var config = {};
         if (token) {
-            config = {headers: {'x-access-token': token}}
+            config = {headers: {'Authorization': 'Bearer '+token}}
         }
         return apiCall('get', ITEM_GETRESERVED_URL, config).then((response: AxiosResponse<ItemResponse<ReservedItems>>) => {
             if (response.status === 200) {
@@ -115,7 +116,7 @@ export const reserveItemAction = (itemid: string) => {
         const token = localStorage.getItem('authToken');
         var config = {};
         if (token) {
-            config = {headers: {'x-access-token': token}}
+            config = {headers: {'Authorization': 'Bearer '+token}}
         }
         return apiCall('post', ITEM_RESERVE_URL.replace(':itemid', itemid), config).then((response: AxiosResponse<ItemGenericResponse>) => {
             if (response.status === 200) {
@@ -136,7 +137,7 @@ export const unReserveItemAction = (itemid: string) => {
         const token = localStorage.getItem('authToken');
         var config = {};
         if (token) {
-            config = {headers: {'x-access-token': token}}
+            config = {headers: {'Authorization': 'Bearer '+token}}
         }
         return apiCall('post', ITEM_UNRESERVE_URL.replace(':itemid', itemid), config).then((response: AxiosResponse<ItemGenericResponse>) => {
             if (response.status === 200) {

@@ -15,7 +15,7 @@ interface ReservedItemsContainerProps {
 
 class ReservedItemsContainer extends PureComponent<ReservedItemsContainerProps> {
     componentDidMount(): void {
-        if (this.props.reservedItems.length == 0) {
+        if (this.props.reservedItems.length === 0) {
             this.props.getReservedItems();
         }
     }
