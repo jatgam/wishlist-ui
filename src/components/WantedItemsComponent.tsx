@@ -46,10 +46,17 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-const unReservableItems = [
-    {name: 'Games on Steam Wishlist', url: 'https://store.steampowered.com/wishlist/id/sinkigobopo/#sort=order'},
-    {name: 'Steam Wallet/Gift Card if you dont have a steam account (Can be found in Gamestop/Bestbuy)', url: 'https://www.bestbuy.com/site/valve-steam-wallet-50-gift-card-multi/6577073.p?skuId=6577073'},
-];
+type UnReservableItems = {
+    name: string;
+    url: string;
+};
+
+// A list of items that aren't reservable. 
+// {name: 'item name', url: 'http://some.url'}
+const unReservableItems: UnReservableItems[] = [
+
+]
+
 
 function WantedItemsComponent({loading, loggedIn, items, reserveItem}: {loading: boolean, loggedIn: boolean, items: WantedItems[], reserveItem: (itemid: string) => void}): JSX.Element {
     const classes = useStyles({});
@@ -61,9 +68,7 @@ function WantedItemsComponent({loading, loggedIn, items, reserveItem}: {loading:
                     <Typography variant='h6' className={classes.tableTitle}>Wanted Items</Typography>
                     <Hidden xsDown>
                         <Grid item sm={12}>
-                            <Typography>NOTE: SNES/PS1/PS2 and other old games can be found MUCH cheaper at local shops such as: <Link href="https://www.facebook.com/Bowsersbasement/">Bowsers Basement in Taunton (seems to be better prices)</Link> or <Link href="http://landofelectronicssoutheaston.business.site/">Land of Electronics Retro Shop in South Easton</Link>, or many others I don't know about. Also, the prices can vary for unopened copies ($200+) to cartridges in great condition, but no packaging ($15). I wan't to play them, so go for the cheaper one :-)</Typography>
-                            <Typography>The links for the games are mostly there so you can see what they are. Search around for better prices if you want to buy online. Gamestop has a decent number of retro games online, but more expensive than local stores.</Typography>
-                            <Typography><Link href="http://gamevaluenow.com/">Game Value Now</Link> is a good resource to get an idea of what things are truly worth before paying for them.</Typography>
+                            <Typography>Some notes that need to be injected somehow.</Typography>
                         </Grid>
                     </Hidden>
                     <div className={classes.tableWrapper}>

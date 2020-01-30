@@ -41,7 +41,7 @@ class Main extends PureComponent<MainRouteProps & RouteProps> {
         return (
             <Grid container justify='center' className={classes.root}>
                 <Grid container>
-                    <TopToolbar barTitle="Shawn Silva's Wishlist" loggedIn={user ? true : false} logout={logout} />
+                    <TopToolbar barTitle="Jatgam Wishlist" loggedIn={user ? true : false} logout={logout} />
                 </Grid>
                 <Grid container justify='center' alignContent='center' spacing={1}>
                     <WantedItemsContainer loggedIn={user ? true : false}></WantedItemsContainer>
