@@ -7,7 +7,7 @@ import jwtDecode from 'jwt-decode'
 import apiCall, {Post} from '../util/apiFactory';
 
 const AUTH_URL = '/api/user/auth';
-const CHECK_AUTH_URL = '/api/user/authenticated';
+const CHECK_AUTH_URL = '/api/user/auth';
 const PW_RESET_URL = '/api/user/password_reset'
 const PW_FORGOT_URL = '/api/user/password_forgot'
 
@@ -25,13 +25,14 @@ export const PW_FORGOT_SUCCESS = 'auth/PW_FORGOT_SUCCESS';
 export const PW_FORGOT_FAIL = 'auth/PW_FORGOT_FAIL';
 
 export interface AuthResponse {
-    success: boolean;
+    code: number;
     message: string;
     token: string;
+    expire: string;
 };
 
 export interface GenericAuthResponse {
-    success: boolean;
+    code: number;
     message: string;
 }
 
@@ -101,11 +102,11 @@ export const checkAuthenticated = () => {
     const token = localStorage.getItem('authToken');
     var config = {};
     if (token) {
-        config = {headers: {'x-access-token': token}}
+        config = {headers: {'Authorization': 'Bearer '+token}}
     }
     return apiCall('get', CHECK_AUTH_URL, config)
         .then((response: AxiosResponse) => {
-            if (response.status != 200) {
+            if (response.status !== 200) {
                 throw Error(response.statusText)
             }
         })
