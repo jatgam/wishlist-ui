@@ -87,7 +87,7 @@ export class PasswordForgotRoute extends PureComponent<PasswordForgotRouteProps 
         );
     }
     
-};
+}
 
 const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, AnyAction>, ownProps: RouteProps) => ({
     handlePasswordForgot: (passwordForgotData: PasswordForgotFormValues) => dispatch(pwForgotAction(passwordForgotData)),

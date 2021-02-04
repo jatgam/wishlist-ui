@@ -14,7 +14,7 @@ export const REGISTER_FAIL = 'register/REGISTER_FAIL';
 export interface RegisterResponse {
     code: number;
     message: string;
-};
+}
 
 export type RegisterStartAction = { type: string };
 export type RegisterSuccessAction = { type: string, payload: string };

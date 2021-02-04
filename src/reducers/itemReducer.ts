@@ -28,40 +28,44 @@ export default function reducer(state: ItemState = defaultState, action: ItemGet
                 loading: true,
                 error: undefined
             };
-        case ITEM_GET_WANTED_SUCCESS:
-            let successAction = action as ItemGetWantedSuccessAction;
+        case ITEM_GET_WANTED_SUCCESS: {
+            const successAction = action as ItemGetWantedSuccessAction;
             return {
                 ...state,
                 loading: false,
                 wantedItems: successAction.payload.items
             };
-        case ITEM_GET_WANTED_FAIL:
-            let failAction = action as ItemGetWantedFailAction;
+        }
+        case ITEM_GET_WANTED_FAIL: {
+            const failAction = action as ItemGetWantedFailAction;
             return {
                 ...state,
                 loading: false,
                 error: failAction.payload
             };
+        }
         case ITEM_GET_RESERVED_START:
             return {
                 ...state,
                 loading: true,
                 error: undefined
             };
-        case ITEM_GET_RESERVED_SUCCESS:
-            let successGetReservedAction = action as ItemGetReservedSuccessAction;
+        case ITEM_GET_RESERVED_SUCCESS: {
+            const successGetReservedAction = action as ItemGetReservedSuccessAction;
             return {
                 ...state,
                 loading: false,
                 reservedItems: successGetReservedAction.payload.items
             };
-        case ITEM_GET_RESERVED_FAIL:
-            let failGetReservedAction = action as ItemGetReservedFailAction;
+        }
+        case ITEM_GET_RESERVED_FAIL: {
+            const failGetReservedAction = action as ItemGetReservedFailAction;
             return {
                 ...state,
                 loading: false,
                 error: failGetReservedAction.payload
             };
+        }
         case ITEM_RESERVE_START:
             return {
                 ...state,
@@ -73,13 +77,14 @@ export default function reducer(state: ItemState = defaultState, action: ItemGet
                 ...state,
                 loading: false,
             };
-        case ITEM_RESERVE_FAIL:
-            let failReserveAction = action as ItemReserveFailAction;
+        case ITEM_RESERVE_FAIL: {
+            const failReserveAction = action as ItemReserveFailAction;
             return {
                 ...state,
                 loading: false,
                 error: failReserveAction.payload
             };
+        }
         case ITEM_UNRESERVE_START:
             return {
                 ...state,
@@ -91,13 +96,14 @@ export default function reducer(state: ItemState = defaultState, action: ItemGet
                 ...state,
                 loading: false,
             };
-        case ITEM_UNRESERVE_FAIL:
-            let failUnReserveAction = action as ItemUnReserveFailAction;
+        case ITEM_UNRESERVE_FAIL: {
+            const failUnReserveAction = action as ItemUnReserveFailAction;
             return {
                 ...state,
                 loading: false,
                 error: failUnReserveAction.payload
             };
+        }
         default:
             return state;
     }

@@ -23,20 +23,22 @@ export default function reducer(state: AuthState = defaultState, action: LoginAc
                 loading: true,
                 error: undefined
             };
-        case LOGIN_SUCCESS:
-            let successAction = action as LoginSuccessAction;
+        case LOGIN_SUCCESS: {
+            const successAction = action as LoginSuccessAction;
             return {
                 ...state,
                 loading: false,
                 user: successAction.payload
             };
-        case LOGIN_FAIL:
-            let failAction = action as LoginFailAction;
+        }
+        case LOGIN_FAIL: {
+            const failAction = action as LoginFailAction;
             return {
                 ...state,
                 loading: false,
                 error: failAction.payload
             };
+        }
         case LOGOUT_USER:
             return {
                 ...state,
@@ -54,13 +56,14 @@ export default function reducer(state: AuthState = defaultState, action: LoginAc
                 ...state,
                 loading: false,
             };
-        case PW_RESET_FAIL:
-            let pwResetfailAction = action as PasswordResetFailAction;
+        case PW_RESET_FAIL: {
+            const pwResetfailAction = action as PasswordResetFailAction;
             return {
                 ...state,
                 loading: false,
                 error: pwResetfailAction.payload,
             };
+        }
         case PW_FORGOT_START:
             return {
                 ...state,
@@ -72,13 +75,14 @@ export default function reducer(state: AuthState = defaultState, action: LoginAc
                 ...state,
                 loading: false,
             };
-        case PW_FORGOT_FAIL:
-            let pwForgotfailAction = action as PasswordForgotFailAction;
+        case PW_FORGOT_FAIL: {
+            const pwForgotfailAction = action as PasswordForgotFailAction;
             return {
                 ...state,
                 loading: false,
                 error: pwForgotfailAction.payload,
             };
+        }
         default:
             return state;
     }

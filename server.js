@@ -1,5 +1,5 @@
 var express  = require('express');
-var proxy = require('http-proxy-middleware');
+const { createProxyMiddleware } = require('http-proxy-middleware');
 var app      = express();
 const fs = require('fs');
 const path = require('path');
@@ -12,7 +12,7 @@ var apiProxyOptions = {
     target: `http://${API_SERVER_HOST}:${API_SERVER_PORT}`,
     pathRewrite: { '^/api': '' }
 };
-var apiProxy = proxy(apiProxyOptions);
+var apiProxy = createProxyMiddleware(apiProxyOptions);
 
 app.use('/api', apiProxy);
 

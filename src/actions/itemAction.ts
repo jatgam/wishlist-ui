@@ -30,7 +30,7 @@ export interface ItemResponse<T> {
     code: number,
     message: string,
     items: T[]
-};
+}
 
 export interface ItemGenericResponse {
     code: number,
@@ -45,7 +45,7 @@ export interface WantedItems {
     rank: number,
     createdAt: string,
     updatedAt: string
-};
+}
 
 export interface ReservedItems {
     id: number,
@@ -55,7 +55,7 @@ export interface ReservedItems {
     rank: number,
     createdAt: string,
     updatedAt: string
-};
+}
 
 export type ItemGetWantedStartAction = {type: string};
 export type ItemGetWantedSuccessAction = {type: string, payload: ItemResponse<WantedItems>};
@@ -95,7 +95,7 @@ export const getReservedItemsAction = () => {
     return (dispatch: ThunkDispatch<any, any, ItemGetReservedAction>) => {
         dispatch({type: ITEM_GET_RESERVED_START});
         const token = localStorage.getItem('authToken');
-        var config = {};
+        let config = {};
         if (token) {
             config = {headers: {'Authorization': 'Bearer '+token}}
         }
@@ -114,7 +114,7 @@ export const reserveItemAction = (itemid: string) => {
     return (dispatch: ThunkDispatch<any, any, ItemReserveAction>) => {
         dispatch({type: ITEM_RESERVE_START});
         const token = localStorage.getItem('authToken');
-        var config = {};
+        let config = {};
         if (token) {
             config = {headers: {'Authorization': 'Bearer '+token}}
         }
@@ -135,7 +135,7 @@ export const unReserveItemAction = (itemid: string) => {
     return (dispatch: ThunkDispatch<any, any, ItemUnReserveAction>) => {
         dispatch({type: ITEM_UNRESERVE_START});
         const token = localStorage.getItem('authToken');
-        var config = {};
+        let config = {};
         if (token) {
             config = {headers: {'Authorization': 'Bearer '+token}}
         }

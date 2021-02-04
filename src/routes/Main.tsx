@@ -25,7 +25,7 @@ interface MainRouteProps {
     classes: any,
     checkAuthenticated: (passwordReset: boolean) => void,
     logout: () => void,
-};
+}
 
 class Main extends PureComponent<MainRouteProps & RouteProps> {
     componentDidMount(): void {
@@ -51,7 +51,7 @@ class Main extends PureComponent<MainRouteProps & RouteProps> {
                 </Grid>
             </Grid>
         );
-    };
+    }
 }
 
 const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, AnyAction>, ownProps: RouteProps) => ({

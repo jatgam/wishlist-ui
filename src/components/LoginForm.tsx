@@ -8,7 +8,7 @@ import JatgamMUI from '../jatgam/mui/JatgamMUI';
 export interface LoginFormValues {
     username: string,
     password: string,
-};
+}
 
 export interface LoginFormProps {
     listCommonContentStatus: any,
@@ -81,8 +81,8 @@ class LoginForm extends PureComponent<LoginFormProps & FormikProps<LoginFormValu
                 </Grid>
             </form>
         );
-    };
-};
+    }
+}
 
 export default LoginForm;
 
@@ -93,7 +93,7 @@ export const EnhancedLoginForm = withFormik<LoginFormProps, LoginFormValues>({
     },
     mapPropsToValues: () => ({username: '', password: ''}),
     validateOnChange: false,
-    validationSchema: Yup.object().shape<LoginFormValues>({
+    validationSchema: Yup.object({
         username: Yup.string().required(),
         password: Yup.string().required()
     })

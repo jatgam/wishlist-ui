@@ -84,6 +84,6 @@ function TopToolbar({barTitle, loggedIn, logout}: {barTitle: string, loggedIn: b
             </AppBar>
         </div>
     );
-};
+}
 
 export default TopToolbar;

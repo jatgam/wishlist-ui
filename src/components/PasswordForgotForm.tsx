@@ -8,7 +8,7 @@ import JatgamMUI from '../jatgam/mui/JatgamMUI';
 
 export interface PasswordForgotFormValues {
     email: string
-};
+}
 
 export interface PasswordForgotFormProps {
     handlePasswordForgot: (passwordForgotData: PasswordForgotFormValues) => void
@@ -56,8 +56,8 @@ class PasswordForgotForm extends PureComponent<PasswordForgotFormProps & FormikP
                 </Grid>
             </form>
         );
-    };
-};
+    }
+}
 
 export default PasswordForgotForm;
 
@@ -68,7 +68,7 @@ export const EnhancedPasswordForgotForm = withFormik<PasswordForgotFormProps, Pa
     },
     mapPropsToValues: () => ({email: ''}),
     validateOnChange: false,
-    validationSchema: Yup.object().shape<PasswordForgotFormValues>({
+    validationSchema: Yup.object({
         email: Yup.string().email().required()
     })
 })(JatgamMUI(withStyles(styles, {withTheme:true})(PasswordForgotForm)));
