@@ -29,7 +29,7 @@ export interface AuthResponse {
     message: string;
     token: string;
     expire: string;
-};
+}
 
 export interface GenericAuthResponse {
     code: number;
@@ -100,7 +100,7 @@ export const pwForgotAction = (passwordForgotData: any) => {
 
 export const checkAuthenticated = () => {
     const token = localStorage.getItem('authToken');
-    var config = {};
+    let config = {};
     if (token) {
         config = {headers: {'Authorization': 'Bearer '+token}}
     }
@@ -117,4 +117,4 @@ export function logoutAction() {
     return (dispatch: ThunkDispatch<any, any, LogoutAction>) => {
         dispatch({type: LOGOUT_USER});
     };
-};
+}

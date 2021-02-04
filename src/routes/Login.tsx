@@ -93,7 +93,7 @@ export class LoginRoute extends PureComponent<LoginRouteProps & RouteProps> {
         );
     }
     
-};
+}
 
 const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, AnyAction>, ownProps: RouteProps) => ({
     handleLogin: (loginData: LoginFormValues) => dispatch(loginAction(loginData)),

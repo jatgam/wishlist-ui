@@ -24,13 +24,14 @@ export default function reducer(state: RegisterState = defaultState, action: Reg
                 loading: false,
                 error: undefined
             };
-        case REGISTER_FAIL:
-            let failAction = action as RegisterFailAction;
+        case REGISTER_FAIL: {
+            const failAction = action as RegisterFailAction;
             return {
                 ...state,
                 loading: false,
                 error: failAction.payload
             };
+        }
         default:
             return state;
     }

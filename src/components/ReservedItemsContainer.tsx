@@ -11,7 +11,7 @@ interface ReservedItemsContainerProps {
     reservedItems: ReservedItems[],
     getReservedItems: () => void,
     unReserveItem: (itemid: string) => void,
-};
+}
 
 class ReservedItemsContainer extends PureComponent<ReservedItemsContainerProps> {
     componentDidMount(): void {
@@ -25,7 +25,7 @@ class ReservedItemsContainer extends PureComponent<ReservedItemsContainerProps> 
         return (
             <ReservedItemsComponent unReserveItem={unReserveItem} loggedIn={loggedIn} loading={loading} items={reservedItems}></ReservedItemsComponent>
         );
-    };
+    }
 }
 
 const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, AnyAction>) => ({

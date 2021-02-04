@@ -66,7 +66,7 @@ export class RegisterRoute extends PureComponent<RegisterRouteProps & RouteProps
     render() {
         const {classes, loading, error} = this.props;
         let errorReason = null;
-        let errorReasons: JSX.Element[] = [];
+        const errorReasons: JSX.Element[] = [];
         if (error && error.response) {
             if (error.response.status === 422) {
                 errorReason = (<div>Data Validation Error, please correct the form.</div>)
@@ -100,7 +100,7 @@ export class RegisterRoute extends PureComponent<RegisterRouteProps & RouteProps
         );
     }
     
-};
+}
 
 const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, AnyAction>, ownProps: RouteProps) => ({
     handleRegister: (registerData: RegisterFormValues) => dispatch(registerAction(registerData)),

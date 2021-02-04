@@ -10,7 +10,7 @@ export interface PasswordResetFormValues {
     password: string,
     password_confirm: string,
     email: string,
-};
+}
 
 export interface PasswordResetFormProps {
     handlePasswordReset: (passwordResetData: PasswordResetFormValues, pwResetToken: string) => void,
@@ -67,8 +67,8 @@ class PasswordResetForm extends PureComponent<PasswordResetFormProps & FormikPro
                 </Grid>
             </form>
         );
-    };
-};
+    }
+}
 
 export default PasswordResetForm;
 
@@ -79,7 +79,7 @@ export const EnhancedPasswordResetForm = withFormik<PasswordResetFormProps, Pass
     },
     mapPropsToValues: () => ({password: '', password_confirm: '', email: ''}),
     validateOnChange: false,
-    validationSchema: Yup.object().shape<PasswordResetFormValues>({
+    validationSchema: Yup.object({
         password: Yup.string().min(10).matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^\w\s]|[_])/, {excludeEmptyString:true, message:'The password must be at least 10 character long and contain at least one of each: lowercase letter, uppercase letter, number, and special character'}).required('Password is Required'),
         password_confirm: Yup.string().oneOf([Yup.ref('password'), null], "Passwords must match").required('Password Confirm is required'),
         email: Yup.string().email().required()

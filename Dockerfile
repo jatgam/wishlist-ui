@@ -1,4 +1,4 @@
-FROM node:10.17.0-alpine as builder
+FROM node:14.15.4-alpine as builder
 ENV NODE_ENV development
 WORKDIR /app
 ADD package.json package-lock.json ./
@@ -6,7 +6,7 @@ RUN npm ci
 ADD . .
 RUN npm run build:prod
 
-FROM node:10.17.0-alpine
+FROM node:14.15.4-alpine
 ENV NODE_ENV production
 WORKDIR /app
 COPY --from=builder /app/package.json /app/package-lock.json ./

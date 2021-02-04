@@ -13,7 +13,7 @@ export interface RegisterFormValues {
     email: string,
     firstname: string,
     lastname: string,
-};
+}
 
 export interface RegisterFormProps {
     handleRegister: (registerData: RegisterFormValues) => void
@@ -83,8 +83,8 @@ class RegisterForm extends PureComponent<RegisterFormProps & FormikProps<Registe
                 </Grid>
             </form>
         );
-    };
-};
+    }
+}
 
 export default RegisterForm;
 
@@ -95,7 +95,7 @@ export const EnhancedRegisterForm = withFormik<RegisterFormProps, RegisterFormVa
     },
     mapPropsToValues: () => ({username: '', password: '', password_confirm: '', email: '', firstname: '', lastname: ''}),
     validateOnChange: false,
-    validationSchema: Yup.object().shape<RegisterFormValues>({
+    validationSchema: Yup.object({
         username: Yup.string().required(),
         password: Yup.string().min(10).matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^\w\s]|[_])/, {excludeEmptyString:true, message:'The password must be at least 10 character long and contain at least one of each: lowercase letter, uppercase letter, number, and special character'}).required('Password is Required'),
         password_confirm: Yup.string().oneOf([Yup.ref('password'), null], "Passwords must match").required('Password Confirm is required'),

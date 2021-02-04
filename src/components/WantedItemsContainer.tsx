@@ -11,7 +11,7 @@ interface WantedItemsContainerProps {
     wantedItems: WantedItems[],
     getWantedItems: () => void,
     reserveItem: (itemid: string) => void,
-};
+}
 
 class WantedItemsContainer extends PureComponent<WantedItemsContainerProps> {
     componentDidMount(): void {
@@ -25,7 +25,7 @@ class WantedItemsContainer extends PureComponent<WantedItemsContainerProps> {
         return (
             <WantedItemsComponent reserveItem={reserveItem} loggedIn={loggedIn} loading={loading} items={wantedItems}></WantedItemsComponent>
         );
-    };
+    }
 }
 
 const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, AnyAction>) => ({
